@@ -1,0 +1,14 @@
+{
+'adam.ludovic@gmail.com': 'Lude',
+'pwosterholmjr@gmail.com': 'Ost',
+'benhuempfner@yahoo.com': 'Benny',
+'vedderim@yahoo.com': 'Strand',
+'capeterson3@gmail.com': 'Sarge',
+'mjfaber12@gmail.com': 'Faber',
+'bgwpackers@yahoo.com': 'Winks',
+'njfrank86@gmail.com': 'Frank',
+'loren.groeschl@gmail.com': 'Gresh',
+'bluejacketer@yahoo.com': 'Schingen',
+'brock@rademann.com': 'Rades',
+'cjsmith5@uwalumni.com': 'Ceej'
+}

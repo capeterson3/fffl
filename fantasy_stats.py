@@ -40,7 +40,7 @@ class UpdateData():
         load_file.close()
 
         yahoo_api._login() # get the newest transactions and write over the existing new_transactions
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/transactions'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.604879/transactions'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('./transactions/Transaction_new.json', 'w') as outfile:
@@ -162,35 +162,49 @@ class UpdateData():
     def UpdateLeague(self):
         # LEAGUE OVERVIEW
         yahoo_api._login()
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.604879/'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('league.json', 'w') as outfile:
             json.dump(r, outfile)
             return;
 
-    def UpdateLeagueStandings(self):
+    def UpdateLeagueStandings(self, year):
         # STANDINGS
         yahoo_api._login()
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/standings'
+        with open('./league_id_mapping.json', 'r') as json_file:
+            mapping = json.load(json_file)
+        
+        game_id = mapping[str(year)]['game_id']
+        league_id = mapping[str(year)]['league_id']
+
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/' + str(game_id) +'.l.' + str(league_id) + '/standings'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
-        with open('standings.json', 'w') as outfile:
+        with open('./standings/standings_'+str(year)+'.json', 'w') as outfile:
             json.dump(r, outfile)
             return;
 
-    def UpdateScoreboards(self):
+    def UpdateScoreboards(self, year):
         # WEEKLY SCORE BOARD
         yahoo_api._login()
+        with open('./league_id_mapping.json', 'r') as json_file:
+            mapping = json.load(json_file)
+        
         week = 1
+        game_id = mapping[str(year)]['game_id']
+        league_id = mapping[str(year)]['league_id']
+
         while week < num_weeks+1: #assumes 16 week-schedule
-            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/scoreboard;week='+str(week)
+            url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/' + str(game_id) +'.l.' + str(league_id) + '/scoreboard;week='+str(week)
             response = oauth.session.get(url, params={'format': 'json'})
             r = response.json()
             file_name = 'week_' + str(week) + 'scoreboard.json'
-            with open('./weekly_scoreboard/'+file_name, 'w') as outfile:
+            with open('./weekly_scoreboard/'+str(year)+'/'+file_name, 'w') as outfile:
                 json.dump(r, outfile)
+            
             week += 1
+
         return;
 
     def UpdateYahooLeagueInfo(self):
@@ -211,7 +225,7 @@ class UpdateData():
         for week in range(1, num_weeks+1): #assumes 16-week schedule
             team = 1
             for team in range(1, num_teams+1): #assumes 12-team league
-                url = 'https://fantasysports.yahooapis.com/fantasy/v2/team/380.l.XXXXXX.t.'+str(team)+'/roster;week='+str(week)
+                url = 'https://fantasysports.yahooapis.com/fantasy/v2/team/380.l.604879.t.'+str(team)+'/roster;week='+str(week)
                 response = oauth.session.get(url, params={'format': 'json'})
                 r = response.json()
                 file_name = 'team_'+str(team)+'_wk_' + str(week) + '_roster.json'
@@ -277,16 +291,24 @@ class Bot():
         UD = UpdateData()
         UD.UpdateLeague()
         print('League update - Done')
-        UD.UpdateYahooLeagueInfo()
-        print('Yahoo League Info Updated')
-        UD.UpdateLeagueStandings()
-        print('Standings update - Done')
-        UD.UpdateScoreboards()
-        print('Scoreboards update - Done')
-        UD.UpdateTransactions()
-        print('Transactions update - Done')
-        UD.UpdateRosters()
-        print('Rosters update - Done')
+        #UD.UpdateYahooLeagueInfo()
+        #print('Yahoo League Info Updated')
+        
+        
+        for year in range(2005, 2020):
+            UD.UpdateLeagueStandings(year)
+            print('Standings updated: ' + str(year))
+        # UD.UpdateLeagueStandings()
+        # print('Standings update - Done')
+        
+        for year in range(2005, 2019):
+            UD.UpdateScoreboards(year)
+            print('Scoreboard updated: ' + str(year))
+
+        # UD.UpdateTransactions()
+        #print('Transactions update - Done')
+        # UD.UpdateRosters()
+        #print('Rosters update - Done')
         print('Update Complete')
 
 if __name__ == "__main__":

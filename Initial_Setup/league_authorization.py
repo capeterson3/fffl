@@ -28,7 +28,7 @@ class Authorize():
     def AuthorizeLeague(self):
         # UPDATE LEAGUE GAME ID
         yahoo_api._login()
-        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.XXXXXX/transactions'
+        url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/380.l.258645/transactions'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         #with open('YahooGameInfo.json', 'w') as outfile:
