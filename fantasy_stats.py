@@ -259,6 +259,7 @@ def main():
     #yahoo_access_secret = auths['access_token_secret']
     json_yahoo_file.close()
 
+
 #### Declare Yahoo, and Current Week Variable ####
 
 
