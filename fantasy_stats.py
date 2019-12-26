@@ -296,15 +296,15 @@ class Bot():
         #print('Yahoo League Info Updated')
         
         
-        for year in range(2005, 2020):
+        for year in range(2019, 2020):
             UD.UpdateLeagueStandings(year)
             print('Standings updated: ' + str(year))
         # UD.UpdateLeagueStandings()
         # print('Standings update - Done')
-        
-        for year in range(2005, 2019):
-            UD.UpdateScoreboards(year)
-            print('Scoreboard updated: ' + str(year))
+        #
+        # for year in range(2005, 2019):
+        #     UD.UpdateScoreboards(year)
+        #     print('Scoreboard updated: ' + str(year))
 
         # UD.UpdateTransactions()
         #print('Transactions update - Done')
