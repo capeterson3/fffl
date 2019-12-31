@@ -18,7 +18,6 @@ class Yahoo_Api():
             oauth.refresh_access_token()
 
 class UpdateData():
-    #def __init__(self):
 
     def UpdateTransactions(self):
         # TRANSACTIONS
@@ -213,9 +212,12 @@ class UpdateData():
         url = 'https://fantasysports.yahooapis.com/fantasy/v2/game/nfl'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
+
+        global game_id = r['fantasy_content']['game'][0]['game_id']
+
         with open('YahooGameInfo.json', 'w') as outfile:
             json.dump(r, outfile)
-            return;
+        return(game_id);
 
 
     def UpdateRosters(self):
@@ -238,9 +240,6 @@ class UpdateData():
 
 def CurrentWeek():
     current_week = 1
-    #with open('./league.json', 'r') as fobj:
-    #    info = json.load(fobj)
-    #current_week = info['fantasy_content']['league'][0]['current_week']
     return current_week;
 
 
@@ -290,26 +289,23 @@ class Bot():
     def run(self):
         # Data Updates
         UD = UpdateData()
-        UD.UpdateLeague()
-        print('League update - Done')
-        #UD.UpdateYahooLeagueInfo()
-        #print('Yahoo League Info Updated')
+
+        # UD.UpdateLeague()
+        # print('League update - Done')
+
+        UD.UpdateYahooLeagueInfo()
+        print('Yahoo League Info Updated. This year\'s game ID is {}'.format(game_id))
         
         
         for year in range(2019, 2020):
             UD.UpdateLeagueStandings(year)
             print('Standings updated: ' + str(year))
-        # UD.UpdateLeagueStandings()
-        # print('Standings update - Done')
-        #
-        # for year in range(2005, 2019):
-        #     UD.UpdateScoreboards(year)
-        #     print('Scoreboard updated: ' + str(year))
 
-        # UD.UpdateTransactions()
-        #print('Transactions update - Done')
-        # UD.UpdateRosters()
-        #print('Rosters update - Done')
+
+        for year in range(2005, 2019):
+            UD.UpdateScoreboards(year)
+            print('Scoreboard updated: ' + str(year))
+
         print('Update Complete')
 
 if __name__ == "__main__":

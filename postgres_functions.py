@@ -89,9 +89,6 @@ def bulkInsert(records):
             connection.close()
             print("PostgreSQL connection is closed")
 
-# records_to_insert = [ (2019125, 2019, 12, "Winks", 56.46, "Ceej", 64.98)]
-# bulkInsert(records_to_insert)
 
 if __name__ == '__main__':
-    # drop_table('weekly_scoreboard')
     create_table()

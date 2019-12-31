@@ -55,9 +55,4 @@ if __name__ == "__main__":
 
     pd.DataFrame(final_standings_all_time).to_csv('./test_output.csv')
 
-    # with open('./final_standings_all_time.json', 'w') as outfile:
-    #     json.dump(final_standings_all_time, outfile)
-
-    # concat_team_numbers()
-
 

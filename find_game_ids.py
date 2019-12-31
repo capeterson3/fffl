@@ -20,8 +20,6 @@ class Yahoo_Api:
 
 
 def UpdateLeague(year, lg_id):
-    # LEAGUE OVERVIEW
-    # yahoo_api._login()
 
     for id in range(350, 400):
         url = (
