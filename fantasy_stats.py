@@ -171,28 +171,29 @@ class UpdateData():
     def UpdateLeagueStandings(self, year):
         # STANDINGS
         yahoo_api._login()
-        with open('./league_id_mapping.json', 'r') as json_file:
-            mapping = json.load(json_file)
+        # with open('./league_id_mapping.json', 'r') as json_file:
+        #     mapping = json.load(json_file)
         
-        game_id = mapping[str(year)]['game_id']
-        league_id = mapping[str(year)]['league_id']
+        # game_id = mapping[str(year)]['game_id']
+        # league_id = mapping[str(year)]['league_id']
 
         url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/' + str(game_id) +'.l.' + str(league_id) + '/standings'
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
         with open('./standings/standings_'+str(year)+'.json', 'w') as outfile:
             json.dump(r, outfile)
-            return;
+            return
 
     def UpdateScoreboards(self, year):
         # WEEKLY SCORE BOARD
         yahoo_api._login()
-        with open('./league_id_mapping.json', 'r') as json_file:
-            mapping = json.load(json_file)
+        # with open('./league_id_mapping.json', 'r') as json_file:
+        #     mapping = json.load(json_file)
         
+        # game_id = mapping[str(year)]['game_id']
+        # league_id = mapping[str(year)]['league_id']
+
         week = 1
-        game_id = mapping[str(year)]['game_id']
-        league_id = mapping[str(year)]['league_id']
 
         while week < num_weeks+1: #assumes 16 week-schedule
             url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/' + str(game_id) +'.l.' + str(league_id) + '/scoreboard;week='+str(week)
@@ -204,7 +205,7 @@ class UpdateData():
             
             week += 1
 
-        return;
+        return
 
     def UpdateYahooLeagueInfo(self):
         # UPDATE LEAGUE GAME ID
@@ -213,11 +214,11 @@ class UpdateData():
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
 
-        global game_id = r['fantasy_content']['game'][0]['game_id']
+        game_id = r['fantasy_content']['game'][0]['game_id']
 
         with open('YahooGameInfo.json', 'w') as outfile:
             json.dump(r, outfile)
-        return(game_id);
+        return(game_id)
 
 
     def UpdateRosters(self):
@@ -277,6 +278,14 @@ def main():
     global num_weeks
     num_weeks = rosters['num_weeks']
 
+    with open('./league_id_mapping.json', 'r') as json_file:
+        mapping = json.load(json_file)
+
+    global game_id 
+    game_id = mapping[str(year)]['game_id']
+    global league_id 
+    league_id = mapping[str(year)]['league_id']
+
 #### Where the tweets happen ####
     bot = Bot(yahoo_api)
     bot.run()
@@ -297,18 +306,22 @@ class Bot():
         print('Yahoo League Info Updated. This year\'s game ID is {}'.format(game_id))
         
         
-        for year in range(2019, 2020):
-            UD.UpdateLeagueStandings(year)
-            print('Standings updated: ' + str(year))
+        # for year in range(2019, 2020):
+        UD.UpdateLeagueStandings(year)
+        print('Standings updated: ' + str(year))
 
 
-        for year in range(2005, 2019):
-            UD.UpdateScoreboards(year)
-            print('Scoreboard updated: ' + str(year))
+        # for year in range(2019, 2020):
+        UD.UpdateScoreboards(year)
+        print('Scoreboard updated: ' + str(year))
 
         print('Update Complete')
 
 if __name__ == "__main__":
+    
+    global year
+    year = 2019
+    
     main()
 
     try:
