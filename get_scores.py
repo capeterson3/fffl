@@ -1,12 +1,13 @@
 import json
-from postgres_functions import bulkInsert
+import pandas as pd
+from postgres_functions import bulkInsert, return_table
 
 
-def get_scores(year):
+def parse_scores(year):
     # load team number and names references as a dictionary
     team_numbers = {}
-    with open("./teams/team_numbers_" + str(year) + ".txt", "r") as f:
-        team_numbers = eval(f.read())
+    with open("./teams/team_numbers.json", "r") as f:
+        team_numbers = json.load(f)
 
     records_to_insert = []
 
@@ -35,20 +36,11 @@ def get_scores(year):
 
             for j in range(1, 3):
                 matchup_switch = "'" + str(j % 2) + "'"
-                # home_team = data[eval(matchup_num)]['matchup']['0']['teams']['0']['team'][0][0]['team_key']
-                # home_team = team_numbers[home_team]
-
-                # home_pts = data[eval(matchup_num)]['matchup']['0']['teams']['0']['team'][1]['team_points']['total']
-
-                # away_team = data[eval(matchup_num)]['matchup']['0']['teams']['1']['team'][0][0]['team_key']
-                # away_team = team_numbers[away_team]
-
-                # away_pts = data[eval(matchup_num)]['matchup']['0']['teams']['1']['team'][1]['team_points']['total']
 
                 team = data[eval(matchup_num)]["matchup"]["0"]["teams"][
                     eval("'" + str(j - 1) + "'")
                 ]["team"][0][0]["team_key"]
-                team = team_numbers[team]
+                team = team_numbers[str(year)][team]
 
                 pts_for = data[eval(matchup_num)]["matchup"]["0"]["teams"][
                     eval("'" + str(j - 1) + "'")
@@ -57,7 +49,7 @@ def get_scores(year):
                 opponent = data[eval(matchup_num)]["matchup"]["0"]["teams"][
                     eval(matchup_switch)
                 ]["team"][0][0]["team_key"]
-                opponent = team_numbers[opponent]
+                opponent = team_numbers[str(year)][opponent]
 
                 pts_against = data[eval(matchup_num)]["matchup"]["0"]["teams"][
                     eval(matchup_switch)
@@ -77,8 +69,25 @@ def get_scores(year):
     return records_to_insert
 
 
-if __name__ == '__main__':
-    for year in range(2005, 2020):
-        print("Pulling scores from {}".format(year))
-        records_to_insert = get_scores(year)
-        bulkInsert(records_to_insert)
+def create_csv_from_table(table):
+
+    df = pd.DataFrame(return_table(table))
+    # df = pd.DataFrame(tmp, index="id")
+    print(df.head())
+
+    df.loc[df["pts_for"] > df["pts_against"], "wins"] = 1
+    df.loc[df["pts_for"] < df["pts_against"], "wins"] = 0
+    df = df.sort_values(["team", "year", "week"])
+    df["cum_season_wins"] = df.groupby(["team", "year"])["wins"].cumsum()
+
+    print(df.head())
+    df.to_csv("all_time_scores.csv")
+
+
+if __name__ == "__main__":
+    # for year in range(2005, 2020):
+    #     print("Pulling scores from {}".format(year))
+    #     records_to_insert = parse_scores(year)
+    #     bulkInsert(records_to_insert)
+
+    create_csv_from_table("scores")

@@ -1,0 +1,1403 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20191.19.0515.1028                               -->
+<workbook source-build='2019.1.4 (20191.19.0515.1028)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <AutoCreateAndUpdateDSDPhoneLayouts />
+    <IntuitiveSorting />
+    <IntuitiveSorting_SP2 />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <style>
+    <style-rule element='axis'>
+      <format attr='line-visibility' value='off' />
+    </style-rule>
+    <style-rule element='worksheet'>
+      <format attr='font-size' value='12' />
+    </style-rule>
+    <style-rule element='gridline'>
+      <format attr='line-visibility' value='off' />
+    </style-rule>
+    <style-rule element='zeroline'>
+      <format attr='line-visibility' value='off' />
+    </style-rule>
+  </style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='Pts For Parameter' datatype='real' default-format='n#,##0;-#,##0' name='[Pts For Parameter]' param-domain-type='any' role='measure' type='quantitative' value='10.0'>
+        <calculation class='tableau' formula='10.0' />
+      </column>
+    </datasource>
+    <datasource caption='final_standings_all_time' inline='true' name='federated.0gscjee02r00vq1dslfls1oz9iyw' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='final_standings_all_time' name='textscan.1r6xwxu0p97v3p1bkxybi0srr4k0'>
+            <connection class='textscan' directory='Data/nfl-fantasy-football - 2009' filename='final_standings_all_time.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.1r6xwxu0p97v3p1bkxybi0srr4k0' name='final_standings_all_time.csv' table='[final_standings_all_time#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='clinched_playoffs' ordinal='1' />
+            <column datatype='integer' name='finish' ordinal='2' />
+            <column datatype='string' name='owner' ordinal='3' />
+            <column datatype='integer' name='playoff_seed' ordinal='4' />
+            <column datatype='integer' name='year' ordinal='5' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>clinched_playoffs</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[clinched_playoffs]</local-name>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias>clinched_playoffs</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>finish</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[finish]</local-name>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias>finish</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>owner</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[owner]</local-name>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias>owner</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>playoff_seed</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[playoff_seed]</local-name>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias>playoff_seed</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[final_standings_all_time.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='Missed Playoffs' datatype='integer' name='[Calculation_2855282167887527936]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [clinched_playoffs] = 1 then 0 else 1 END' />
+      </column>
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column datatype='string' name='[Playoff Seed (group)]' role='dimension' type='nominal'>
+        <calculation class='categorical-bin' column='[playoff_seed]' new-bin='true'>
+          <bin default-name='false' value='&quot;1 or 2 Seed&quot;'>
+            <value>1</value>
+            <value>2</value>
+          </bin>
+          <bin default-name='false' value='&quot;Other Seed&quot;'>
+            <value>3</value>
+            <value>4</value>
+            <value>5</value>
+            <value>6</value>
+          </bin>
+        </calculation>
+      </column>
+      <column caption='Clinched Playoffs' datatype='integer' name='[clinched_playoffs]' role='measure' type='quantitative' />
+      <column aggregation='Sum' caption='Finish' datatype='integer' name='[finish]' role='dimension' type='ordinal' />
+      <column caption='Owner' datatype='string' name='[owner]' role='dimension' type='nominal' />
+      <column aggregation='Sum' caption='Playoff Seed' datatype='integer' name='[playoff_seed]' role='dimension' type='ordinal' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+      <column-instance column='[Calculation_2855282167887527936]' derivation='None' name='[none:Calculation_2855282167887527936:ok]' pivot='key' type='ordinal' />
+      <column-instance column='[playoff_seed]' derivation='None' name='[none:playoff_seed:ok]' pivot='key' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.38874' measure-ordering='alphabetic' measure-percentage='0.36059' parameter-percentage='0.25067' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Calculation_2855282167887527936:ok]' type='palette'>
+            <map to='#59a14f'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>0</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:playoff_seed:ok]' type='palette'>
+            <map to='#499894'>
+              <bucket>8</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>0</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>4</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>12</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>9</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>5</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>1</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>6</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>10</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>7</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>2</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>11</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>3</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[Playoff Seed (group)]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;1 or 2 Seed&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Other Seed&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+    </datasource>
+    <datasource caption='alltime scores' inline='true' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='all_time_scores' name='textscan.08oe3jd13uwvop1cocevt01fyets'>
+            <connection class='textscan' directory='Data/nfl-fantasy-football - 2009' filename='all_time_scores.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <relation connection='textscan.08oe3jd13uwvop1cocevt01fyets' name='all_time_scores.csv' table='[all_time_scores#csv]' type='table'>
+          <columns character-set='UTF-8' header='yes' locale='en_US' separator=','>
+            <column datatype='integer' name='F1' ordinal='0' />
+            <column datatype='integer' name='id' ordinal='1' />
+            <column datatype='integer' name='year' ordinal='2' />
+            <column datatype='integer' name='week' ordinal='3' />
+            <column datatype='string' name='team' ordinal='4' />
+            <column datatype='real' name='pts_for' ordinal='5' />
+            <column datatype='string' name='opponent' ordinal='6' />
+            <column datatype='real' name='pts_against' ordinal='7' />
+            <column datatype='real' name='wins' ordinal='8' />
+            <column datatype='real' name='cum_season_wins' ordinal='9' />
+          </columns>
+        </relation>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;en_US&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F1</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[F1]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>F1</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>id</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[id]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>id</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>year</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[year]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>year</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>week</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[week]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>week</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>team</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[team]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>team</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pts_for</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pts_for]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>pts_for</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>opponent</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[opponent]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>opponent</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LEN_RUS' />
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>pts_against</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[pts_against]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>pts_against</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>wins</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[wins]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>wins</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>cum_season_wins</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[cum_season_wins]</local-name>
+            <parent-name>[all_time_scores.csv]</parent-name>
+            <remote-alias>cum_season_wins</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column caption='% Missing Playoffs' datatype='real' name='[% Clinching Playoffs (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([federated.0gscjee02r00vq1dslfls1oz9iyw].[Calculation_2855282167887527936])/sum([Number of Records])' />
+      </column>
+      <column caption='Wins' datatype='integer' name='[Calculation_2934165527314415616]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [pts_against] &lt; [pts_for] then 1 else 0 END' />
+      </column>
+      <column caption='Record' datatype='string' name='[Calculation_2934165527316582402]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='str([cum_season_wins]) + &quot; - &quot; + str([Running Total Wins (copy)])' />
+      </column>
+      <column caption='% Clinching Playoffs' datatype='real' name='[Calculation_2934165527697858564]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='SUM([federated.0gscjee02r00vq1dslfls1oz9iyw].[clinched_playoffs])/sum([Number of Records])' />
+      </column>
+      <column caption='Yearly Pts by Owner' datatype='real' name='[Calculation_2934165528494137356]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [year],[team]:sum([pts_for])}' />
+      </column>
+      <column caption='Yearly League Avg Pts' datatype='real' name='[Calculation_2934165528494411789]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='{ FIXED [year]:SUM([pts_for])/COUNTD([team])}' />
+      </column>
+      <column caption='Yearly Pts vs League Avg' datatype='real' name='[Calculation_2934165528494579726]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Calculation_2934165528494137356]/[Calculation_2934165528494411789]' />
+      </column>
+      <column datatype='integer' hidden='true' name='[F1]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+        <calculation class='tableau' formula='1' />
+      </column>
+      <column aggregation='None' caption='Pts For (bin)' datatype='integer' name='[Pts For (bin)]' role='dimension' type='ordinal'>
+        <calculation class='bin' decimals='0' formula='[pts_for]' peg='0' size-parameter='[Parameters].[Pts For Parameter]' />
+      </column>
+      <column aggregation='Sum' caption='Total Losses' datatype='real' name='[Running Total Wins (copy)]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='[week]-[cum_season_wins]' />
+      </column>
+      <column caption='Losses' datatype='integer' name='[Wins (copy)]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='if [pts_against] &gt; [pts_for] then 1 else 0 END' />
+      </column>
+      <column aggregation='Sum' caption='Total Wins' datatype='real' name='[cum_season_wins]' role='dimension' type='ordinal' />
+      <column caption='Id' datatype='integer' name='[id]' role='dimension' type='ordinal' />
+      <column caption='Opponent' datatype='string' name='[opponent]' role='dimension' type='nominal' />
+      <column caption='Pts Against' datatype='real' name='[pts_against]' role='measure' type='quantitative' />
+      <column caption='Pts For' datatype='real' name='[pts_for]' role='measure' type='quantitative' />
+      <column caption='Owner' datatype='string' name='[team]' role='dimension' type='nominal' />
+      <column caption='Week' datatype='integer' name='[week]' role='dimension' type='ordinal' />
+      <column caption='Wins1' datatype='real' name='[wins]' role='measure' type='quantitative' />
+      <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+      <layout dim-ordering='alphabetic' dim-percentage='0.399464' measure-ordering='alphabetic' measure-percentage='0.454424' parameter-percentage='0.146113' show-structure='true' />
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;United States&quot;' />
+      </semantic-values>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='Pts For Parameter' datatype='real' default-format='n#,##0;-#,##0' name='[Pts For Parameter]' param-domain-type='any' role='measure' type='quantitative' value='10.0'>
+          <calculation class='tableau' formula='10.0' />
+        </column>
+      </datasource-dependencies>
+      <datasource-dependencies datasource='federated.0gscjee02r00vq1dslfls1oz9iyw'>
+        <column caption='Missed Playoffs' datatype='integer' name='[Calculation_2855282167887527936]' role='measure' type='quantitative'>
+          <calculation class='tableau' formula='if [clinched_playoffs] = 1 then 0 else 1 END' />
+        </column>
+        <column caption='Clinched Playoffs' datatype='integer' name='[clinched_playoffs]' role='measure' type='quantitative' />
+      </datasource-dependencies>
+    </datasource>
+  </datasources>
+  <worksheets>
+    <worksheet name='# of Playoff Berths'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='final_standings_all_time' name='federated.0gscjee02r00vq1dslfls1oz9iyw' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0gscjee02r00vq1dslfls1oz9iyw'>
+            <column caption='Missed Playoffs' datatype='integer' name='[Calculation_2855282167887527936]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [clinched_playoffs] = 1 then 0 else 1 END' />
+            </column>
+            <column datatype='string' name='[Playoff Seed (group)]' role='dimension' type='nominal'>
+              <calculation class='categorical-bin' column='[playoff_seed]' new-bin='true'>
+                <bin default-name='false' value='&quot;1 or 2 Seed&quot;'>
+                  <value>1</value>
+                  <value>2</value>
+                </bin>
+                <bin default-name='false' value='&quot;Other Seed&quot;'>
+                  <value>3</value>
+                  <value>4</value>
+                  <value>5</value>
+                  <value>6</value>
+                </bin>
+              </calculation>
+            </column>
+            <column caption='Clinched Playoffs' datatype='integer' name='[clinched_playoffs]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_2855282167887527936]' derivation='None' name='[none:Calculation_2855282167887527936:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[owner]' derivation='None' name='[none:owner:nk]' pivot='key' type='nominal' />
+            <column caption='Owner' datatype='string' name='[owner]' role='dimension' type='nominal' />
+            <column aggregation='Sum' caption='Playoff Seed' datatype='integer' name='[playoff_seed]' role='dimension' type='ordinal' />
+            <column-instance column='[Calculation_2855282167887527936]' derivation='Sum' name='[sum:Calculation_2855282167887527936:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[clinched_playoffs]' derivation='Sum' name='[sum:clinched_playoffs:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <manual-sort column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[Playoff Seed (group)]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Other Seed&quot;</bucket>
+              <bucket>&quot;1 or 2 Seed&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='categorical' column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:Calculation_2855282167887527936:ok]'>
+            <groupfilter function='member' level='[none:Calculation_2855282167887527936:ok]' member='1' user:ui-domain='relevant' user:ui-enumeration='inclusive' user:ui-marker='enumerate' />
+          </filter>
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:owner:nk]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:clinched_playoffs:qk]' shelf='rows' />
+          </shelf-sorts>
+          <slices>
+            <column>[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:Calculation_2855282167887527936:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <color column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[Playoff Seed (group)]' />
+            </encodings>
+          </pane>
+        </panes>
+        <rows>[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:owner:nk]</rows>
+        <cols>[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:Calculation_2855282167887527936:qk]</cols>
+      </table>
+      <simple-id uuid='{CD6C7034-C73D-4EC0-9C29-19F27826BEA6}' />
+    </worksheet>
+    <worksheet name='Finish Over Time'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='final_standings_all_time' name='federated.0gscjee02r00vq1dslfls1oz9iyw' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0gscjee02r00vq1dslfls1oz9iyw'>
+            <column aggregation='Sum' caption='Finish' datatype='integer' name='[finish]' role='dimension' type='ordinal' />
+            <column-instance column='[owner]' derivation='None' name='[none:owner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year]' derivation='None' name='[none:year:ok]' pivot='key' type='ordinal' />
+            <column caption='Owner' datatype='string' name='[owner]' role='dimension' type='nominal' />
+            <column-instance column='[finish]' derivation='Sum' name='[sum:finish:qk]' pivot='key' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:finish:qk]' field-type='quantitative' reverse='true' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:finish:qk]' palette='blue_10_0' reverse='true' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:finish:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='datalabel'>
+                <format attr='color-mode' value='user' />
+                <format attr='font-weight' value='bold' />
+                <format attr='font-size' value='16' />
+                <format attr='color' value='#f28e2b' />
+                <format attr='font-family' value='Tableau Semibold' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-mode' value='range' />
+                <format attr='mark-labels-show' value='true' />
+                <format attr='line-interpolation' value='step' />
+                <format attr='mark-labels-cull' value='false' />
+                <format attr='mark-labels-range-min' value='true' />
+                <format attr='mark-labels-range-max' value='false' />
+                <format attr='mark-color' value='#666666' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.0gscjee02r00vq1dslfls1oz9iyw].[none:owner:nk] * [federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:finish:qk])</rows>
+        <cols>[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:year:ok]</cols>
+      </table>
+      <simple-id uuid='{1AC59CB3-6717-412E-8F9B-70FB096C6D95}' />
+    </worksheet>
+    <worksheet name='Playoff %'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1' fontcolor='#ffffff' fontsize='22'>Probability of Making the Playoffs</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='alltime scores' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' />
+            <datasource caption='final_standings_all_time' name='federated.0gscjee02r00vq1dslfls1oz9iyw' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0gscjee02r00vq1dslfls1oz9iyw'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column caption='Clinched Playoffs' datatype='integer' name='[clinched_playoffs]' role='measure' type='quantitative' />
+            <column caption='Owner' datatype='string' name='[owner]' role='dimension' type='nominal' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[clinched_playoffs]' derivation='Sum' name='[sum:clinched_playoffs:qk]' pivot='key' type='quantitative' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.13ywspj19q2zob1g5c62s0ghvgn6'>
+            <column caption='% Clinching Playoffs' datatype='real' name='[Calculation_2934165527697858564]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='SUM([federated.0gscjee02r00vq1dslfls1oz9iyw].[clinched_playoffs])/sum([Number of Records])' />
+            </column>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='Sum' caption='Total Losses' datatype='real' name='[Running Total Wins (copy)]' role='dimension' type='ordinal'>
+              <calculation class='tableau' formula='[week]-[cum_season_wins]' />
+            </column>
+            <column aggregation='Sum' caption='Total Wins' datatype='real' name='[cum_season_wins]' role='dimension' type='ordinal' />
+            <column-instance column='[Running Total Wins (copy)]' derivation='None' name='[none:Running Total Wins (copy):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[cum_season_wins]' derivation='None' name='[none:cum_season_wins:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Calculation_2934165527697858564]' derivation='User' name='[usr:Calculation_2934165527697858564:qk]' pivot='key' type='quantitative' />
+            <column caption='Week' datatype='integer' name='[week]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <natural-sort column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]' direction='ASC' />
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='height' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]' value='24' />
+            <format attr='text-format' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]' value='p0%' />
+            <format attr='text-align' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]' value='center' />
+            <format attr='border-color' value='#000000' />
+            <format attr='border-width' value='0' />
+            <format attr='border-style' value='none' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='height' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Running Total Wins (copy):ok]' value='45' />
+            <format attr='width' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]' value='76' />
+          </style-rule>
+          <style-rule element='field-labels'>
+            <format attr='color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='field-labels-decoration'>
+            <format attr='wrap' value='on' />
+            <format attr='text-orientation' value='0' />
+            <format attr='vertical-align' value='center' />
+            <format attr='text-align' value='right' />
+          </style-rule>
+          <style-rule element='label'>
+            <format attr='wrap' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]' value='on' />
+            <format attr='color' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Running Total Wins (copy):ok]' value='#ffffff' />
+            <format attr='color' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]' value='#ffffff' />
+            <format attr='text-align' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]' value='center' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]' palette='tableau-map-temperatur' reverse='true' type='interpolated' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='background-color' value='#898989' />
+          </style-rule>
+          <style-rule element='table-div'>
+            <format attr='stroke-size' scope='rows' value='0' />
+            <format attr='line-visibility' scope='rows' value='off' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]' />
+              <lod column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:clinched_playoffs:qk]' />
+              <text column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:clinched_playoffs:qk]' />
+              <text column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:Number of Records:qk]' />
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run bold='true' fontsize='10'>&lt;[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontsize='8'>(</run>
+                <run fontsize='8'>&lt;[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:clinched_playoffs:qk]&gt;</run>
+                <run fontsize='8'> out of &lt;[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:Number of Records:qk]&gt;)</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-transparency' value='242' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minheight' value='-1' />
+                <format attr='maxheight' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:cum_season_wins:ok]</rows>
+        <cols>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Running Total Wins (copy):ok]</cols>
+        <join-lod-include-overrides>
+          <column>[federated.0gscjee02r00vq1dslfls1oz9iyw].[owner]</column>
+          <column>[federated.0gscjee02r00vq1dslfls1oz9iyw].[year]</column>
+        </join-lod-include-overrides>
+      </table>
+      <simple-id uuid='{0BDC80B7-367C-44A6-8AA9-20D680466899}' />
+    </worksheet>
+    <worksheet name='Records vs Opp (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='alltime scores' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.13ywspj19q2zob1g5c62s0ghvgn6'>
+            <column caption='Wins' datatype='integer' name='[Calculation_2934165527314415616]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [pts_against] &lt; [pts_for] then 1 else 0 END' />
+            </column>
+            <column caption='SUM([Wins])/(sum([Wins1])+SUM([Losses]))' datatype='real' name='[Calculation_2934165528466993162]' role='measure' type='quantitative' user:unnamed='Records vs Opp (2)'>
+              <calculation class='tableau' formula='SUM([Calculation_2934165527314415616])/(sum([wins])+SUM([Wins (copy)]))' />
+            </column>
+            <column caption='str(SUM([Wins])) + &quot; - &quot; + str(sum([Losses]))' datatype='string' name='[Calculation_2934165528467406859]' role='measure' type='nominal' user:unnamed='Records vs Opp (2)'>
+              <calculation class='tableau' formula='str(SUM([Calculation_2934165527314415616])) + &quot; - &quot; + str(sum([Wins (copy)]))' />
+            </column>
+            <column caption='Losses' datatype='integer' name='[Wins (copy)]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [pts_against] &gt; [pts_for] then 1 else 0 END' />
+            </column>
+            <column-instance column='[opponent]' derivation='None' name='[none:opponent:nk]' pivot='key' type='nominal' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column caption='Opponent' datatype='string' name='[opponent]' role='dimension' type='nominal' />
+            <column caption='Pts Against' datatype='real' name='[pts_against]' role='measure' type='quantitative' />
+            <column caption='Pts For' datatype='real' name='[pts_for]' role='measure' type='quantitative' />
+            <column caption='Owner' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column-instance column='[Calculation_2934165528466993162]' derivation='User' name='[usr:Calculation_2934165528466993162:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2934165528467406859]' derivation='User' name='[usr:Calculation_2934165528467406859:nk]' pivot='key' type='nominal' />
+            <column caption='Wins1' datatype='real' name='[wins]' role='measure' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528466993162:qk]' value='p0%' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-width' value='3' />
+            <format attr='border-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='mark'>
+            <encoding attr='color' center='0.5' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528466993162:qk]' include-totals='true' num-steps='7' palette='tableau-map-temperatur' reverse='true' symmetric='false' type='interpolated' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528466993162:qk]' />
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528466993162:qk]' />
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528467406859:nk]' />
+            </encodings>
+            <customized-label>
+              <formatted-text>
+                <run fontsize='13'>&lt;[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528466993162:qk]&gt;</run>
+                <run>Æ&#10;</run>
+                <run fontsize='11'>&lt;[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528467406859:nk]&gt;</run>
+              </formatted-text>
+            </customized-label>
+            <style>
+              <style-rule element='cell'>
+                <format attr='text-align' value='center' />
+              </style-rule>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-transparency' value='190' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows onTop='true'>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]</rows>
+        <cols onLeft='true' total='true'>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:opponent:nk]</cols>
+      </table>
+      <simple-id uuid='{04ABCC35-D0C1-4BC9-BCBF-E3E4E4FFD902}' />
+    </worksheet>
+    <worksheet name='Scoring vs League Avg'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='alltime scores' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.13ywspj19q2zob1g5c62s0ghvgn6'>
+            <column caption='Yearly Pts by Owner' datatype='real' name='[Calculation_2934165528494137356]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [year],[team]:sum([pts_for])}' />
+            </column>
+            <column caption='Yearly League Avg Pts' datatype='real' name='[Calculation_2934165528494411789]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [year]:SUM([pts_for])/COUNTD([team])}' />
+            </column>
+            <column caption='Yearly Pts vs League Avg' datatype='real' name='[Calculation_2934165528494579726]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_2934165528494137356]/[Calculation_2934165528494411789]' />
+            </column>
+            <column-instance column='[Calculation_2934165528494579726]' derivation='Avg' name='[avg:Calculation_2934165528494579726:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year]' derivation='None' name='[none:year:ok]' pivot='key' type='ordinal' />
+            <column caption='Pts For' datatype='real' name='[pts_for]' role='measure' type='quantitative' />
+            <column caption='Owner' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]' direction='DESC' using='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' />
+          <shelf-sorts>
+            <shelf-sort-v2 dimension-to-sort='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:year:ok]' direction='DESC' is-on-innermost-dimension='true' measure-to-sort-by='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' shelf='rows'>
+              <sort-filter-info>
+                <sort-filter level-name='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]' member-value='&quot;Ost&quot;' />
+              </sort-filter-info>
+            </shelf-sort-v2>
+          </shelf-sorts>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' value='n#,##0.00;-#,##0.00' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Square' />
+            <encodings>
+              <color column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' />
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows total='true'>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:year:ok]</rows>
+        <cols>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]</cols>
+      </table>
+      <simple-id uuid='{30EBDB95-B7AF-4271-9688-8F602E14AEB0}' />
+    </worksheet>
+    <worksheet name='Scoring vs League Avg (2)'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='alltime scores' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.13ywspj19q2zob1g5c62s0ghvgn6'>
+            <column caption='Yearly Pts by Owner' datatype='real' name='[Calculation_2934165528494137356]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [year],[team]:sum([pts_for])}' />
+            </column>
+            <column caption='Yearly League Avg Pts' datatype='real' name='[Calculation_2934165528494411789]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [year]:SUM([pts_for])/COUNTD([team])}' />
+            </column>
+            <column caption='Yearly Pts vs League Avg' datatype='real' name='[Calculation_2934165528494579726]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_2934165528494137356]/[Calculation_2934165528494411789]' />
+            </column>
+            <column-instance column='[Calculation_2934165528494579726]' derivation='Avg' name='[avg:Calculation_2934165528494579726:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_2934165528494579726]' derivation='None' name='[none:Calculation_2934165528494579726:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year]' derivation='None' name='[none:year:ok]' pivot='key' type='ordinal' />
+            <column caption='Pts For' datatype='real' name='[pts_for]' role='measure' type='quantitative' />
+            <column caption='Owner' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Calculation_2934165528494579726:ok]'>
+            <groupfilter count='10' end='bottom' function='end' units='records' user:ui-marker='end' user:ui-top-by-field='true'>
+              <groupfilter direction='DESC' expression='SUM([Calculation_2934165528494579726])' function='order' user:ui-marker='order'>
+                <groupfilter function='level-members' level='[none:Calculation_2934165528494579726:ok]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+              </groupfilter>
+            </groupfilter>
+          </filter>
+          <computed-sort column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]' direction='DESC' using='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' />
+          <slices>
+            <column>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Calculation_2934165528494579726:ok]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Calculation_2934165528494579726:ok]' />
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]' />
+              <text column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:year:ok]' />
+              <lod column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows total='true' />
+        <cols />
+      </table>
+      <simple-id uuid='{3529C343-C8D5-456C-9BC1-0653500E8C07}' />
+    </worksheet>
+    <worksheet name='Sheet 10'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{DD102AD7-0DDA-40EC-9E21-61C3D58ADA61}' />
+    </worksheet>
+    <worksheet name='Sheet 4'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='final_standings_all_time' name='federated.0gscjee02r00vq1dslfls1oz9iyw' />
+          </datasources>
+          <datasource-dependencies datasource='federated.0gscjee02r00vq1dslfls1oz9iyw'>
+            <column caption='Missed Playoffs' datatype='integer' name='[Calculation_2855282167887527936]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='if [clinched_playoffs] = 1 then 0 else 1 END' />
+            </column>
+            <column caption='Clinched Playoffs' datatype='integer' name='[clinched_playoffs]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_2855282167887527936]' derivation='None' name='[none:Calculation_2855282167887527936:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[owner]' derivation='None' name='[none:owner:nk]' pivot='key' type='nominal' />
+            <column-instance column='[year]' derivation='None' name='[none:year:ok]' pivot='key' type='ordinal' />
+            <column caption='Owner' datatype='string' name='[owner]' role='dimension' type='nominal' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Circle' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <encodings>
+              <color column='[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:Calculation_2855282167887527936:ok]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.80160218477249146' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:owner:nk]</rows>
+        <cols>[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:year:ok]</cols>
+      </table>
+      <simple-id uuid='{DAE06626-D96A-4437-82D9-1A597E9A9E37}' />
+    </worksheet>
+    <worksheet name='boxplot'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='alltime scores' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' />
+          </datasources>
+          <datasource-dependencies datasource='federated.13ywspj19q2zob1g5c62s0ghvgn6'>
+            <column caption='Yearly Pts by Owner' datatype='real' name='[Calculation_2934165528494137356]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [year],[team]:sum([pts_for])}' />
+            </column>
+            <column caption='Yearly League Avg Pts' datatype='real' name='[Calculation_2934165528494411789]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='{ FIXED [year]:SUM([pts_for])/COUNTD([team])}' />
+            </column>
+            <column caption='Yearly Pts vs League Avg' datatype='real' name='[Calculation_2934165528494579726]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Calculation_2934165528494137356]/[Calculation_2934165528494411789]' />
+            </column>
+            <column-instance column='[Calculation_2934165528494579726]' derivation='Avg' name='[avg:Calculation_2934165528494579726:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column caption='Pts For' datatype='real' name='[pts_for]' role='measure' type='quantitative' />
+            <column caption='Owner' datatype='string' name='[team]' role='dimension' type='nominal' />
+            <column caption='Year' datatype='integer' name='[year]' role='dimension' type='ordinal' />
+          </datasource-dependencies>
+          <computed-sort column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]' direction='DESC' using='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' />
+          <aggregation value='false' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <mark-sizing mark-sizing-setting='marks-scaling-off' />
+            <reference-line axis-column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' boxplot-mark-exclusion='true' boxplot-whisker-type='standard' enable-instant-analytics='true' formula='average' id='refline0' label-type='automatic' probability='95' scope='per-cell' symmetric='false' value-column='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' z-order='1' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='size' value='0.16392265260219574' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]</rows>
+        <cols>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk]</cols>
+      </table>
+      <simple-id uuid='{2FBA081A-074D-4983-ADF1-E76794DFB2DF}' />
+    </worksheet>
+    <worksheet name='pts histo'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='alltime scores' name='federated.13ywspj19q2zob1g5c62s0ghvgn6' />
+            <datasource name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Pts For Parameter' datatype='real' default-format='n#,##0;-#,##0' name='[Pts For Parameter]' param-domain-type='any' role='measure' type='quantitative' value='10.0'>
+              <calculation class='tableau' formula='10.0' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.13ywspj19q2zob1g5c62s0ghvgn6'>
+            <column datatype='integer' name='[Number of Records]' role='measure' type='quantitative' user:auto-column='numrec'>
+              <calculation class='tableau' formula='1' />
+            </column>
+            <column aggregation='None' caption='Pts For (bin)' datatype='integer' name='[Pts For (bin)]' role='dimension' type='ordinal'>
+              <calculation class='bin' decimals='0' formula='[pts_for]' peg='0' size-parameter='[Parameters].[Pts For Parameter]' />
+            </column>
+            <column-instance column='[Pts For (bin)]' derivation='None' name='[none:Pts For (bin):ok]' pivot='key' type='ordinal' />
+            <column-instance column='[team]' derivation='None' name='[none:team:nk]' pivot='key' type='nominal' />
+            <column caption='Pts For' datatype='real' name='[pts_for]' role='measure' type='quantitative' />
+            <column-instance column='[Number of Records]' derivation='Sum' name='[sum:Number of Records:qk]' pivot='key' type='quantitative' />
+            <column caption='Owner' datatype='string' name='[team]' role='dimension' type='nominal' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:team:nk] * [federated.13ywspj19q2zob1g5c62s0ghvgn6].[sum:Number of Records:qk])</rows>
+        <cols>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[none:Pts For (bin):ok]</cols>
+        <show-full-range>
+          <column>[federated.13ywspj19q2zob1g5c62s0ghvgn6].[Pts For (bin)]</column>
+        </show-full-range>
+      </table>
+      <simple-id uuid='{3D420436-C1AA-4C70-9BC2-6A9255CB523D}' />
+    </worksheet>
+  </worksheets>
+  <dashboards>
+    <dashboard name='Playoff Probability'>
+      <style />
+      <size maxheight='800' maxwidth='1100' minheight='800' minwidth='1100' sizing-mode='fixed' />
+      <zones>
+        <zone h='100000' id='4' type='layout-basic' w='100000' x='0' y='0'>
+          <zone h='98000' id='7' param='horz' type='layout-flow' w='98546' x='727' y='1000'>
+            <zone h='98000' id='5' type='layout-basic' w='98546' x='727' y='1000'>
+              <zone h='98000' id='3' name='Playoff %' w='98546' x='727' y='1000'>
+                <zone-style>
+                  <format attr='border-color' value='#000000' />
+                  <format attr='border-style' value='none' />
+                  <format attr='border-width' value='0' />
+                  <format attr='margin' value='4' />
+                  <format attr='background-color' value='#898989' />
+                </zone-style>
+              </zone>
+            </zone>
+          </zone>
+          <zone-style>
+            <format attr='border-color' value='#000000' />
+            <format attr='border-style' value='none' />
+            <format attr='border-width' value='0' />
+            <format attr='margin' value='8' />
+          </zone-style>
+        </zone>
+      </zones>
+      <devicelayouts>
+        <devicelayout auto-generated='true' name='Phone'>
+          <size maxheight='700' minheight='700' sizing-mode='vscroll' />
+          <zones>
+            <zone h='100000' id='12' type='layout-basic' w='100000' x='0' y='0'>
+              <zone h='98000' id='13' param='vert' type='layout-flow' w='98546' x='727' y='1000'>
+                <zone fixed-size='280' h='98000' id='3' is-fixed='true' name='Playoff %' w='98546' x='727' y='1000'>
+                  <zone-style>
+                    <format attr='border-color' value='#000000' />
+                    <format attr='border-style' value='none' />
+                    <format attr='border-width' value='0' />
+                    <format attr='margin' value='4' />
+                    <format attr='padding' value='0' />
+                    <format attr='background-color' value='#898989' />
+                  </zone-style>
+                </zone>
+              </zone>
+              <zone-style>
+                <format attr='border-color' value='#000000' />
+                <format attr='border-style' value='none' />
+                <format attr='border-width' value='0' />
+                <format attr='margin' value='8' />
+              </zone-style>
+            </zone>
+          </zones>
+        </devicelayout>
+      </devicelayouts>
+      <simple-id uuid='{233FB7A9-EC2F-41CD-9A04-5E0DACF64606}' />
+    </dashboard>
+  </dashboards>
+  <windows source-height='51'>
+    <window class='worksheet' maximized='true' name='Playoff %'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165527697858564:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{54FB3CBB-9DC9-4691-A741-CF44F3A402A1}' />
+    </window>
+    <window class='dashboard' name='Playoff Probability'>
+      <viewpoints>
+        <viewpoint name='Playoff %'>
+          <zoom type='entire-view' />
+        </viewpoint>
+      </viewpoints>
+      <active id='-1' />
+      <simple-id uuid='{A1DBB245-6A26-47C4-9697-A5DACB9F7D47}' />
+    </window>
+    <window class='worksheet' name='Records vs Opp (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='166'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[usr:Calculation_2934165528466993162:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{0C9B48F6-D448-4016-B4CA-1865BB622E3F}' />
+    </window>
+    <window class='worksheet' name='Sheet 4'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0gscjee02r00vq1dslfls1oz9iyw].[none:clinched_playoffs:ok]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <zoom type='entire-view' />
+      </viewpoint>
+      <simple-id uuid='{58A85B94-1C77-494F-A88A-35F4E69156C0}' />
+    </window>
+    <window class='worksheet' name='# of Playoff Berths'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0gscjee02r00vq1dslfls1oz9iyw].[Playoff Seed (group)]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DC558E7D-51F0-44B0-8D79-29D319538092}' />
+    </window>
+    <window class='worksheet' name='Finish Over Time'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.0gscjee02r00vq1dslfls1oz9iyw].[sum:finish:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{4FA7FDB1-320F-47EB-9D45-02B88440FF5D}' />
+    </window>
+    <window class='worksheet' name='pts histo'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card mode='type_in' param='[Parameters].[Pts For Parameter]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{61FCFA2D-831E-4377-8A13-0F4BC7DE9781}' />
+    </window>
+    <window class='worksheet' name='boxplot'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{3787E77A-8111-4E60-985F-1AD18A88223C}' />
+    </window>
+    <window class='worksheet' name='Scoring vs League Avg'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='160'>
+            <card pane-specification-id='0' param='[federated.13ywspj19q2zob1g5c62s0ghvgn6].[avg:Calculation_2934165528494579726:qk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E38DA7B1-E4A7-44C7-A571-67A66EDE8E99}' />
+    </window>
+    <window class='worksheet' name='Scoring vs League Avg (2)'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{136B6EA9-079B-4EF3-850B-9CDB4757A037}' />
+    </window>
+    <window class='worksheet' name='Sheet 10'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{DA0BB6DC-3D21-4F23-8B96-46A364B81EFE}' />
+    </window>
+  </windows>
+</workbook>
