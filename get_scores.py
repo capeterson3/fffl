@@ -11,8 +11,8 @@ def parse_scores(year):
 
     records_to_insert = []
 
-    # Loop through 13 regular season weeks
-    for i in range(0, 13):
+    # Loop through 13 regular season weeks plus 3 playoff weeks
+    for i in range(0, 16):
         filename = (
             "./weekly_scoreboard/"
             + str(year)
@@ -37,34 +37,36 @@ def parse_scores(year):
             for j in range(1, 3):
                 matchup_switch = "'" + str(j % 2) + "'"
 
-                team = data[eval(matchup_num)]["matchup"]["0"]["teams"][
-                    eval("'" + str(j - 1) + "'")
-                ]["team"][0][0]["team_key"]
-                team = team_numbers[str(year)][team]
+                try:
+                    team = data[eval(matchup_num)]["matchup"]["0"]["teams"][eval("'" + str(j - 1) + "'")]["team"][0][0]["team_key"]
+                    team = team_numbers[str(year)][team]
 
-                pts_for = data[eval(matchup_num)]["matchup"]["0"]["teams"][
-                    eval("'" + str(j - 1) + "'")
-                ]["team"][1]["team_points"]["total"]
+                    pts_for = data[eval(matchup_num)]["matchup"]["0"]["teams"][
+                        eval("'" + str(j - 1) + "'")
+                    ]["team"][1]["team_points"]["total"]
 
-                opponent = data[eval(matchup_num)]["matchup"]["0"]["teams"][
-                    eval(matchup_switch)
-                ]["team"][0][0]["team_key"]
-                opponent = team_numbers[str(year)][opponent]
+                    opponent = data[eval(matchup_num)]["matchup"]["0"]["teams"][
+                        eval(matchup_switch)
+                    ]["team"][0][0]["team_key"]
+                    opponent = team_numbers[str(year)][opponent]
 
-                pts_against = data[eval(matchup_num)]["matchup"]["0"]["teams"][
-                    eval(matchup_switch)
-                ]["team"][1]["team_points"]["total"]
+                    pts_against = data[eval(matchup_num)]["matchup"]["0"]["teams"][
+                        eval(matchup_switch)
+                    ]["team"][1]["team_points"]["total"]
 
-                matchup = (
-                    int(str(season) + str(week) + str(i) + str(j)),
-                    season,
-                    week,
-                    team,
-                    pts_for,
-                    opponent,
-                    pts_against,
-                )
-                records_to_insert.append(matchup)
+                    matchup = (
+                        int(str(season) + str(week) + str(i) + str(j)),
+                        season,
+                        week,
+                        team,
+                        pts_for,
+                        opponent,
+                        pts_against,
+                    )
+                    records_to_insert.append(matchup)
+                
+                except:
+                    pass
 
     return records_to_insert
 
@@ -73,7 +75,7 @@ def create_csv_from_table(table):
 
     df = pd.DataFrame(return_table(table))
     # df = pd.DataFrame(tmp, index="id")
-    print(df.head())
+    # print(df.head())
 
     df.loc[df["pts_for"] > df["pts_against"], "wins"] = 1
     df.loc[df["pts_for"] < df["pts_against"], "wins"] = 0
@@ -85,9 +87,9 @@ def create_csv_from_table(table):
 
 
 if __name__ == "__main__":
-    # for year in range(2005, 2020):
-    #     print("Pulling scores from {}".format(year))
-    #     records_to_insert = parse_scores(year)
-    #     bulkInsert(records_to_insert)
+    for year in range(2005, 2020):
+        print("Pulling scores from {}".format(year))
+        records_to_insert = parse_scores(year)
+        bulkInsert(records_to_insert)
 
     create_csv_from_table("scores")

@@ -5,8 +5,7 @@ from json import dumps
 import datetime
 
 class Yahoo_Api():
-    def __init__(self, consumer_key, consumer_secret,
-                access_key):
+    def __init__(self, consumer_key, consumer_secret, access_key):
         self._consumer_key = consumer_key
         self._consumer_secret = consumer_secret
         self._access_key = access_key
@@ -169,13 +168,8 @@ class UpdateData():
             return;
 
     def UpdateLeagueStandings(self, year):
-        # STANDINGS
+
         yahoo_api._login()
-        # with open('./league_id_mapping.json', 'r') as json_file:
-        #     mapping = json.load(json_file)
-        
-        # game_id = mapping[str(year)]['game_id']
-        # league_id = mapping[str(year)]['league_id']
 
         url = 'https://fantasysports.yahooapis.com/fantasy/v2/league/' + str(game_id) +'.l.' + str(league_id) + '/standings'
         response = oauth.session.get(url, params={'format': 'json'})
@@ -187,11 +181,6 @@ class UpdateData():
     def UpdateScoreboards(self, year):
         # WEEKLY SCORE BOARD
         yahoo_api._login()
-        # with open('./league_id_mapping.json', 'r') as json_file:
-        #     mapping = json.load(json_file)
-        
-        # game_id = mapping[str(year)]['game_id']
-        # league_id = mapping[str(year)]['league_id']
 
         week = 1
 
@@ -214,7 +203,7 @@ class UpdateData():
         response = oauth.session.get(url, params={'format': 'json'})
         r = response.json()
 
-        game_id = r['fantasy_content']['game'][0]['game_id']
+        # game_id = r['fantasy_content']['game'][0]['game_id']
 
         with open('YahooGameInfo.json', 'w') as outfile:
             json.dump(r, outfile)
@@ -228,7 +217,7 @@ class UpdateData():
         for week in range(1, num_weeks+1): #assumes 16-week schedule
             team = 1
             for team in range(1, num_teams+1): #assumes 12-team league
-                url = 'https://fantasysports.yahooapis.com/fantasy/v2/team/380.l.604879.t.'+str(team)+'/roster;week='+str(week)
+                url = 'https://fantasysports.yahooapis.com/fantasy/v2/team/' + str(game_id) +'.l.' + str(league_id) + 't.'+str(team)+'/roster;week='+str(week)
                 response = oauth.session.get(url, params={'format': 'json'})
                 r = response.json()
                 file_name = 'team_'+str(team)+'_wk_' + str(week) + '_roster.json'
@@ -239,9 +228,9 @@ class UpdateData():
             week += 1
         return;
 
-def CurrentWeek():
-    current_week = 1
-    return current_week;
+# def CurrentWeek():
+#     current_week = 1
+#     return current_week;
 
 
 
@@ -259,15 +248,11 @@ def main():
     #yahoo_access_secret = auths['access_token_secret']
     json_yahoo_file.close()
 
-
-#### Declare Yahoo, and Current Week Variable ####
-
-
     global yahoo_api
     yahoo_api = Yahoo_Api(yahoo_consumer_key, yahoo_consumer_secret, yahoo_access_key)#, yahoo_access_secret)
 
-    global current_week
-    current_week = CurrentWeek()
+    # global current_week
+    # current_week = CurrentWeek()
 
     with open('./Initial_Setup/league_info_form.txt', 'r') as f:
         rosters = eval(f.read())
@@ -330,3 +315,6 @@ if __name__ == "__main__":
         raise
     else:
         pass
+
+#TODO: test to-dos
+
